@@ -31,5 +31,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Checklist": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -1,0 +1,28 @@
+{
+    "name": "Checklist",
+    "base": "PersistedModel",
+    "strict": true,
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true,
+        "mysql": {
+            "table": "CHECKLISTS"
+        }
+    },
+    "properties": {
+        "description": {
+            "type": "string",
+            "required": true
+        },
+        "created": {
+            "type": "date"
+        },
+        "updated": {
+            "type": "date"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+}
