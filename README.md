@@ -24,11 +24,13 @@ I applied this pattern in this snippet to create multiple records for a model wi
 ```
 
 #STR
+```
 cd ~
 git clone https://github.com/pantaluna/loopback-sandbox-this-getdatasource.git
 cd loopback-sandbox-this-getdatasource
 npm install
 node "./bin/01-add-data-using-promises"
+```
 
 consolelog:
 > addData()
