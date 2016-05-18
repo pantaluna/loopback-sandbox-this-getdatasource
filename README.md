@@ -1,22 +1,36 @@
 # loopback-sandbox
-
 A repository for reproducing [LoopBack community issues][wiki-issues].
-
 [wiki-issues]: https://github.com/strongloop/loopback/wiki/Reporting-issues
 
-Referring to https://github.com/strongloop/loopback/issues/2164#issuecomment-215645590 for using Promise.all() in combination with model.create([]);
+# Promise.all(dataset.map(model.create)) -> TypeError: this.getDataSource is not a function
+
+I found this pattern at https://github.com/strongloop/loopback/issues/2164#issuecomment-215645590
+for using Promise.all() in combination with model.create([]):
 ```
 Promise.all(jobsP.map(Job.create)).then(jobs => {
   console.log('num jobs' + jobs.length);
 });
 ```
 
+I applied this pattern in this snippet to create multiple records for a model with promises:
+```
+  Promise.all(inputDataSet.map(cl.create))
+    .then(results => {
+      console.info('num results:' + results.length);
+    })
+    .catch(function () {
+      throw new Error('ERROR Promise.all cli.create() FAILED.');
+    });
+```
+
+#STR
 cd ~
 git clone https://github.com/pantaluna/loopback-sandbox-this-getdatasource.git
-cd \my-loopback\loopback-sandbox-this-getdatasource
+cd loopback-sandbox-this-getdatasource
 npm install
 node "./bin/01-add-data-using-promises"
 
+consolelog:
 > addData()
 ***The main .catch()***
 TypeError: this.getDataSource is not a function
