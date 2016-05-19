@@ -46,7 +46,7 @@ function addData() {
       .then(results => {
         console.info('num results:' + results.length);
         console.info('results (array of nulls):');
-        logger.info(results);
+        console.info(results);
       })
       .catch(function (err) {
         console.error('ERROR Promise.all cli.create() FAILED.');
@@ -57,11 +57,11 @@ function addData() {
         return cl.create(data);
       })
       .then(results => {
-        logger.info('num results:' + results.length);
-        logger.info('results');
-        logger.info(results);
-        // Promise management!
-        resolve();
+         console.info('num results:' + results.length);
+         console.info('results');
+         console.info(results);
+         // Promise management!
+         resolve(results);
       })
       .catch(function (error) {
         console.error('ERROR Promise.mapSeries cl.create() FAILED.');
