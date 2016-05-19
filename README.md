@@ -12,15 +12,17 @@ Promise.all(jobsP.map(Job.create)).then(jobs => {
 });
 ```
 
-I applied this pattern in this snippet to create multiple records for a model with promises:
+I applied that pattern in this snippet to create multiple records for a model with promises:
 ```
-  Promise.all(inputDataSet.map(cl.create))
-    .then(results => {
-      console.info('num results:' + results.length);
-    })
-    .catch(function () {
-      throw new Error('ERROR Promise.all cli.create() FAILED.');
-    });
+    Promise.all(inputDataSet.map(cl.create))
+      .then(results => {
+        console.info('num results:' + results.length);
+        console.info('results (array of nulls):');
+        logger.info(results);
+      })
+      .catch(function () {
+        reject('ERROR Promise.all cli.create() FAILED.');
+      });
 ```
 
 #STR

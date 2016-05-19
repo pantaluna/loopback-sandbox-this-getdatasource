@@ -48,8 +48,9 @@ function addData() {
         console.info('results (array of nulls):');
         logger.info(results);
       })
-      .catch(function () {
-        reject('ERROR Promise.all cli.create() FAILED.');
+      .catch(function (err) {
+        console.error('ERROR Promise.all cli.create() FAILED.');
+        reject(err);
       });
 /*
     Promise.mapSeries(inputDataSet, function (data) {
@@ -63,7 +64,8 @@ function addData() {
         resolve();
       })
       .catch(function (error) {
-        reject('ERROR Promise.mapSeries cl.create() FAILED.');
+        console.error('ERROR Promise.mapSeries cl.create() FAILED.');
+        reject(error);
       });
 */
 
