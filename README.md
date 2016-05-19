@@ -2,6 +2,9 @@
 A repository for reproducing [LoopBack community issues][wiki-issues].
 [wiki-issues]: https://github.com/strongloop/loopback/wiki/Reporting-issues
 
+# Github report:
+https://github.com/strongloop/loopback-datasource-juggler/issues/936
+
 # Promise.all(dataset.map(model.create)) -> TypeError: this.getDataSource is not a function
 
 I found this pattern at https://github.com/strongloop/loopback/issues/2164#issuecomment-215645590
