@@ -47,6 +47,7 @@ function addData() {
         console.info('num results:' + results.length);
         console.info('results (array of nulls):');
         console.info(results);
+        resolve(results);
       })
       .catch(function (err) {
         console.error('ERROR Promise.all cli.create() FAILED.');
