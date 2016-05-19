@@ -21,16 +21,15 @@ app.close = function () {
 // MAIN promise chaining
 let promise = addData();
 promise
+  .catch(function (err) {
+    console.error('***The main .catch()***');
+    console.error(err);
+  })
   .then(function () {
     console.info('> EXIT. Stopping Loopback so the Node.js main process exits a well...');
     app.close();
     setTimeout(process.exit(), 1000);
-  })
-  .catch(function (err) {
-    console.error('***The main .catch()***');
-    console.error(err);
   });
-
 
 function addData() {
   return new Promise(function (resolve, reject) {

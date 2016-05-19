@@ -29,7 +29,7 @@ cd ~
 git clone https://github.com/pantaluna/loopback-sandbox-this-getdatasource.git
 cd loopback-sandbox-this-getdatasource
 npm install
-node "./bin/01-add-data-using-promises"
+node "./bin/01-reproduce.js"
 ```
 
 consolelog:
