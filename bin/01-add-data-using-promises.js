@@ -1,6 +1,13 @@
 var Promise = require('bluebird');
 var path = require('path');
 
+// Float unhandled Promises in Node.js
+// http://stackoverflow.com/questions/28709666/how-do-i-handle-exceptions-globally-with-native-promises-in-io-js-node-js
+process.on("unhandledRejection", function(reason, p){
+  console.log("unhandledRejection ", reason, p); // log all your errors, "floating" them.
+  throw reason; // OPTIONAL in case you want to treat these as errors
+});
+
 // Loopback bootstrap in my independent script :)
 var app = require(path.resolve(__dirname, '../server/server'));
 
