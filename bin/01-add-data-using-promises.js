@@ -33,7 +33,7 @@ function addData() {
     let inputDataSet = [
       {description: 'Promise #1: ONLY the description field is specified'},
       {description: 'Promise #2: ONLY the description field is specified'},
-      {description: 'Promise #3: ONLY the description field is specified'},
+      {description: 'Promise #3: ONLY the description field is specified'}
     ];
 
     Promise.all(inputDataSet.map(cl.create))
@@ -43,24 +43,23 @@ function addData() {
         logger.info(results);
       })
       .catch(function () {
-        throw new Error('ERROR Promise.all cli.create() FAILED.');
+        reject('ERROR Promise.all cli.create() FAILED.');
       });
-
-    /*
-     Promise.mapSeries(inputDataSet, function(data) {
-     return cl.create(data);
-     })
-     .then(results => {
-     logger.info('num results:' + results.length);
-     logger.info('results'); logger.info(results);
-     // Promise management!
-     resolve();
-     })
-     .catch(function (error) {
-     throw new Error('ERROR Promise.mapSeries cl.create() FAILED.');
-     });
-     */
-
+/*
+    Promise.mapSeries(inputDataSet, function (data) {
+        return cl.create(data);
+      })
+      .then(results => {
+        logger.info('num results:' + results.length);
+        logger.info('results');
+        logger.info(results);
+        // Promise management!
+        resolve();
+      })
+      .catch(function (error) {
+        reject('ERROR Promise.mapSeries cl.create() FAILED.');
+      });
+*/
 
   });
 }
